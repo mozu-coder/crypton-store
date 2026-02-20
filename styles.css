@@ -1,0 +1,504 @@
+/* CRT Effect */
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size:
+    100% 2px,
+    3px 100%;
+  pointer-events: none;
+}
+
+.crt::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.027951;
+  }
+  5% {
+    opacity: 0.048283;
+  }
+  10% {
+    opacity: 0.041622;
+  }
+  15% {
+    opacity: 0.091176;
+  }
+  20% {
+    opacity: 0.016335;
+  }
+  25% {
+    opacity: 0.012586;
+  }
+  30% {
+    opacity: 0.076878;
+  }
+  35% {
+    opacity: 0.053896;
+  }
+  40% {
+    opacity: 0.035985;
+  }
+  45% {
+    opacity: 0.018447;
+  }
+  50% {
+    opacity: 0.020556;
+  }
+  55% {
+    opacity: 0.088654;
+  }
+  60% {
+    opacity: 0.010196;
+  }
+  65% {
+    opacity: 0.027668;
+  }
+  70% {
+    opacity: 0.038459;
+  }
+  75% {
+    opacity: 0.018901;
+  }
+  80% {
+    opacity: 0.081829;
+  }
+  85% {
+    opacity: 0.078496;
+  }
+  90% {
+    opacity: 0.048866;
+  }
+  95% {
+    opacity: 0.009493;
+  }
+  100% {
+    opacity: 0.015243;
+  }
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+  position: relative;
+  color: white;
+  text-shadow:
+    2px 2px #8c25f4,
+    -2px -2px #39ff14;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #39ff14;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #8c25f4;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(13px, 9999px, 81px, 0);
+  }
+  20% {
+    clip: rect(78px, 9999px, 14px, 0);
+  }
+  40% {
+    clip: rect(21px, 9999px, 63px, 0);
+  }
+  60% {
+    clip: rect(54px, 9999px, 28px, 0);
+  }
+  80% {
+    clip: rect(93px, 9999px, 45px, 0);
+  }
+  100% {
+    clip: rect(3px, 9999px, 96px, 0);
+  }
+}
+
+/* Clip Jagged Effect */
+.clip-jagged {
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+
+/* Matrix Background */
+.matrix-bg {
+  background-image:
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(57, 255, 20, 0.05) 25%,
+      rgba(57, 255, 20, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(57, 255, 20, 0.05) 75%,
+      rgba(57, 255, 20, 0.05) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(57, 255, 20, 0.05) 25%,
+      rgba(57, 255, 20, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(57, 255, 20, 0.05) 75%,
+      rgba(57, 255, 20, 0.05) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 30px 30px;
+}
+
+/* Neon Glow */
+.neon-glow {
+  box-shadow:
+    0 0 10px #39ff14,
+    0 0 20px #39ff14,
+    0 0 30px #39ff14,
+    0 0 40px #8c25f4;
+}
+
+/* Floating Component - CORRIGIDO */
+.floating-component {
+  animation: float 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+.delay-2 {
+  animation-delay: 2s;
+}
+.delay-3 {
+  animation-delay: 3s;
+}
+
+/* Logo Icon with Cursor */
+.logo-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-icon::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  width: 2px;
+  height: 12px;
+  background: #39ff14;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* VITALÍCIO TEXT - SOLUÇÃO DEFINITIVA */
+.vitalicio-text {
+  background: linear-gradient(90deg, #8c25f4 0%, #39ff14 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  font-weight: 900;
+}
+
+/* Remove stroke de qualquer texto com gradient */
+span[class*="bg-clip-text"],
+span[class*="gradient"] {
+  -webkit-text-stroke-width: 0 !important;
+}
+
+/* Details/Summary Styling */
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Text Shadows for Glitch Effect on Mobile */
+@media (max-width: 640px) {
+  .glitch-text {
+    text-shadow:
+      1px 1px #8c25f4,
+      -1px -1px #39ff14;
+  }
+
+  .glitch-text::before {
+    left: 1px;
+  }
+
+  .glitch-text::after {
+    left: -1px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Mobile Menu Smooth Transition - CORRIGIDO */
+[data-mobile-menu] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+[data-mobile-menu].hidden {
+  display: none;
+}
+
+[data-mobile-menu]:not(.hidden) {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 1024px) {
+  button,
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Image optimization for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+.cursor-pointer {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8c25f4;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39ff14;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8c25f4 #0a0a0c;
+}
+
+/* Background Animations - CORRIGIDO */
+.animate-pulse {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-matrix {
+  animation: matrix 20s linear infinite;
+}
+
+@keyframes matrix {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.animate-glitch {
+  animation: glitch 5s ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0%,
+  90%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.2;
+  }
+  92%,
+  94%,
+  96% {
+    transform: translate(2px, -2px);
+    opacity: 0.25;
+  }
+  93%,
+  95% {
+    transform: translate(-2px, 2px);
+    opacity: 0.15;
+  }
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #39ff14;
+  outline-offset: 2px;
+}
+
+/* Improve mobile tap experience */
+@media (hover: none) and (pointer: coarse) {
+  .group:active .group-hover\:scale-105 {
+    transform: scale(1.05);
+  }
+
+  .group:active .group-hover\:text-primary {
+    color: #8c25f4;
+  }
+
+  .group:active .group-hover\:text-accent {
+    color: #39ff14;
+  }
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+html {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+html.loaded {
+  opacity: 1;
+}
+
+/* Lazy load images */
+img {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img.loaded {
+  opacity: 1;
+}
